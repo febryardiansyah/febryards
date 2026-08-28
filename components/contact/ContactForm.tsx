@@ -29,7 +29,7 @@ export function ContactForm() {
     state.status === "error" ? state.fieldErrors ?? {} : {};
 
   return (
-    <form action={formAction} className="space-y-4 sm:space-y-5" noValidate>
+    <form action={formAction} className="space-y-2.5 sm:space-y-5" noValidate>
       <div className="hidden" aria-hidden>
         <label>
           Website
@@ -76,8 +76,9 @@ export function ContactForm() {
           id="message"
           name="message"
           required
-          rows={6}
-          className="mt-2 w-full rounded-lg border border-[var(--color-rule)] bg-[var(--color-card)] px-4 py-3 text-[var(--color-fg)] outline-none transition-colors focus:border-[var(--color-fg)]"
+          rows={3}
+          className="mt-1 w-full resize-y rounded-lg border border-[var(--color-rule)] bg-[var(--color-card)] px-3 py-2 text-sm leading-snug text-[var(--color-fg)] outline-none transition-colors focus:border-[var(--color-fg)] sm:mt-2 sm:px-4 sm:py-3 sm:text-base"
+          style={{ minHeight: "5rem" }}
         />
         {fieldErrors.message && (
           <p className="mt-1 text-xs text-[var(--color-accent-2)]">
@@ -92,18 +93,18 @@ export function ContactForm() {
         </p>
       )}
 
-      <div className="flex flex-col items-stretch justify-between gap-3 pt-2 sm:flex-row sm:items-center">
-        <p className="text-xs text-[var(--color-muted)]">
+      <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between sm:pt-2">
+        <p className="text-[11px] leading-snug text-[var(--color-muted)] sm:text-xs">
           Replies go to{" "}
           <span className="block sm:inline">febryardiansyah27@gmail.com.</span>
         </p>
         <button
           type="submit"
           disabled={isPending}
-          className="btn-pill w-full justify-center disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          className="rounded-full bg-[var(--color-pill)] px-5 py-3 text-sm font-medium text-[var(--color-bg)] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
           {isPending ? "Sending…" : "Send message"}
-          <span aria-hidden>→</span>
+          <span aria-hidden className="ml-1.5">→</span>
         </button>
       </div>
     </form>
@@ -136,7 +137,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="mt-2 w-full rounded-lg border border-[var(--color-rule)] bg-[var(--color-card)] px-4 py-3 text-[var(--color-fg)] outline-none transition-colors focus:border-[var(--color-fg)]"
+        className="mt-1 w-full rounded-lg border border-[var(--color-rule)] bg-[var(--color-card)] px-3 py-2 text-sm leading-snug text-[var(--color-fg)] outline-none transition-colors focus:border-[var(--color-fg)] sm:mt-2 sm:px-4 sm:py-3 sm:text-base"
       />
       {error && (
         <p className="mt-1 text-xs text-[var(--color-accent-2)]">{error}</p>

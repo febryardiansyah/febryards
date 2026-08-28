@@ -61,7 +61,7 @@ export default function ContactPage() {
 
       <section
         id="contact-form"
-        className="grid gap-8 py-8 md:grid-cols-[1.5fr,1fr] md:gap-12 md:py-16"
+        className="grid gap-6 py-6 md:grid-cols-[1.5fr,1fr] md:gap-12 md:py-16"
       >
         <Reveal>
           <ContactForm />
