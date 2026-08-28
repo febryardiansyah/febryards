@@ -7,6 +7,7 @@ import { Footer } from "@/components/chrome/Footer";
 import { StickyHello } from "@/components/chrome/StickyHello";
 import { ScrollProgress } from "@/components/chrome/ScrollProgress";
 import { CursorFollower } from "@/components/chrome/CursorFollower";
+import { RouteSplash } from "@/components/chrome/RouteSplash";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -99,6 +100,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyHello />
+        <RouteSplash />
       </body>
     </html>
   );

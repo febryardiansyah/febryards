@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NavSplash } from "./NavSplash";
+import { MonogramMark } from "@/components/ornament/Monogram";
 
 const links = [
   { href: "/", label: "Works" },
@@ -13,7 +12,6 @@ const links = [
 
 export function Nav() {
   const pathname = usePathname();
-  const [splashOpen, setSplashOpen] = useState(false);
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-[var(--color-rule)] bg-[var(--color-bg)]/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
@@ -46,17 +44,6 @@ export function Nav() {
             );
           })}
           <li className="ml-1 shrink-0">
-            <button
-              onClick={() => setSplashOpen(true)}
-              className="btn-pill text-sm"
-              data-cursor="hover"
-              aria-haspopup="dialog"
-              aria-expanded={splashOpen}
-            >
-              Menu ✦
-            </button>
-          </li>
-          <li className="ml-1 shrink-0">
             <a
               href="https://drive.google.com/file/d/1CC8hQ_k18P-dIc7tBLFDbbB0wguUo4jU/view?usp=sharing"
               target="_blank"
@@ -68,32 +55,6 @@ export function Nav() {
           </li>
         </ul>
       </div>
-      <NavSplash open={splashOpen} onClose={() => setSplashOpen(false)} />
     </nav>
-  );
-}
-
-function MonogramMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      className={className}
-      aria-hidden="true"
-      fill="none"
-    >
-      <rect
-        x="0.5"
-        y="0.5"
-        width="31"
-        height="31"
-        rx="7"
-        fill="var(--color-ink)"
-      />
-      <path
-        d="M9 23 V9 H14 L20 19 V9 H23 V23 H18 L12 13 V23 Z"
-        fill="var(--color-bg)"
-      />
-      <circle cx="24.5" cy="9.5" r="2" fill="var(--color-accent)" />
-    </svg>
   );
 }
