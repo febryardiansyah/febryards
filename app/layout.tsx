@@ -5,6 +5,8 @@ import { StatusBar } from "@/components/chrome/StatusBar";
 import { Nav } from "@/components/chrome/Nav";
 import { Footer } from "@/components/chrome/Footer";
 import { StickyHello } from "@/components/chrome/StickyHello";
+import { ScrollProgress } from "@/components/chrome/ScrollProgress";
+import { CursorFollower } from "@/components/chrome/CursorFollower";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -88,6 +90,8 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <ScrollProgress />
+        <CursorFollower />
         <StatusBar />
         <Nav />
         <main id="main" className="flex-1">

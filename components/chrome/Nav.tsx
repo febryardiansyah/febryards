@@ -33,7 +33,7 @@ export function Nav() {
                   href={l.href}
                   className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
                     active
-                      ? "bg-[var(--color-ink)] text-[var(--color-bg)]"
+                      ? "bg-[var(--color-pill)] text-[var(--color-bg)]"
                       : "text-[var(--color-fg)] hover:bg-[var(--color-rule)]"
                   }`}
                 >

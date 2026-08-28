@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
+import { MarqueeCTA } from "@/components/motion/MarqueeCTA";
+import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
 import {
   getAdjacentProjects,
   getProjectBySlug,
@@ -57,10 +59,12 @@ export default async function WorkPage(
         </Link>
       </nav>
 
-      <header className="pt-8 md:pt-12">
+      <header className="relative overflow-hidden pt-8 md:pt-12">
+        <FloatingDecorations variant="minimal" />
+
         <div className="flex flex-wrap items-center gap-3">
           <span className="bracket">[ CASE STUDY ]</span>
-          <span aria-hidden className="text-2xl">
+          <span aria-hidden className="wiggle text-2xl">
             {project.emoji}
           </span>
           <span className="bracket">{project.year}</span>
@@ -229,6 +233,20 @@ export default async function WorkPage(
           </p>
         </Link>
       )}
+
+      <Reveal>
+        <section className="mt-12">
+          <div className="bracket mb-3 text-[var(--color-muted)]">
+            [ CTA · ALWAYS ON ]
+          </div>
+          <MarqueeCTA
+            text={`Liked ${project.title}? Let's talk about yours`}
+            href="/contact"
+            ariaLabel="Get in touch"
+            speed="normal"
+          />
+        </section>
+      </Reveal>
     </div>
   );
 }

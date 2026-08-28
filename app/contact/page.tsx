@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionLabel } from "@/components/motion/SectionLabel";
+import { MarqueeCTA } from "@/components/motion/MarqueeCTA";
+import { AnimatedSquiggle } from "@/components/motion/AnimatedSquiggle";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { StarBurst, WaveSquiggle } from "@/components/ornament/Ornaments";
+import { StarBurst } from "@/components/ornament/Ornaments";
+import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
@@ -14,10 +18,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 pb-12">
-      <section className="pt-12 pb-12 md:pt-20">
+      <section className="relative overflow-hidden pt-12 pb-12 md:pt-20">
+        <FloatingDecorations variant="hero" />
+
         <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
-          <StarBurst className="h-4 w-4 text-[var(--color-accent)]" />
-          <span className="bracket">[ 00 / CONTACT ]</span>
+          <StarBurst className="h-4 w-4 text-[var(--color-accent)] twinkle" />
+          <SectionLabel index={0} label="CONTACT" />
+          <span aria-hidden>/</span>
+          <span className="bracket text-[var(--color-accent-2)]">
+            ● replies within 48h
+          </span>
         </div>
 
         <Reveal>
@@ -34,11 +44,25 @@ export default function ContactPage() {
             like. I&apos;ll get back to you within a couple of days.
           </p>
         </Reveal>
+
+        <Reveal delay={0.2}>
+          <div className="mt-8">
+            <MarqueeCTA
+              text="Open to interesting collaborations"
+              href="#contact-form"
+              ariaLabel="Open contact form"
+              speed="normal"
+            />
+          </div>
+        </Reveal>
       </section>
 
       <hr className="hairline" />
 
-      <section className="grid gap-12 py-12 md:grid-cols-[1.5fr,1fr] md:py-16">
+      <section
+        id="contact-form"
+        className="grid gap-12 py-12 md:grid-cols-[1.5fr,1fr] md:py-16"
+      >
         <Reveal>
           <ContactForm />
         </Reveal>
@@ -85,7 +109,7 @@ export default function ContactPage() {
             </div>
 
             <div className="dashed-frame px-5 py-5">
-              <WaveSquiggle className="h-4 w-20 text-[var(--color-muted)]" />
+              <AnimatedSquiggle className="text-[var(--color-muted)]" />
               <p className="mt-3 text-sm text-[var(--color-fg)]">
                 For full-time opportunities, freelance collaborations, or
                 technical consulting — just send a clear brief and I&apos;ll
@@ -98,6 +122,21 @@ export default function ContactPage() {
           </aside>
         </Reveal>
       </section>
+
+      <Reveal>
+        <section className="mt-8">
+          <div className="bracket mb-3 text-[var(--color-muted)]">
+            [ CTA · ALWAYS ON ]
+          </div>
+          <MarqueeCTA
+            text="Currently shipping · reply within 48h · open to side quests"
+            href="#contact-form"
+            ariaLabel="Open contact form"
+            speed="slow"
+            variant="primary"
+          />
+        </section>
+      </Reveal>
     </div>
   );
 }
