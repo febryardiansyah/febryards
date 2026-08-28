@@ -63,6 +63,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   overflow-x: hidden;
 }

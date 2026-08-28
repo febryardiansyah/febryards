@@ -32,7 +32,7 @@ export function Nav() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`rounded-full px-2.5 py-1 text-xs transition-colors sm:px-3 sm:py-1.5 sm:text-sm ${
+                  className={`rounded-full px-2.5 py-1.5 text-xs transition-colors sm:px-3 sm:text-sm ${
                     active
                       ? "bg-[var(--color-pill)] text-[var(--color-bg)]"
                       : "text-[var(--color-fg)] hover:bg-[var(--color-rule)]"

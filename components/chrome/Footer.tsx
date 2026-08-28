@@ -31,7 +31,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${profile.email}`}
-              className="mt-3 inline-flex items-center gap-2 text-lg underline-offset-4 hover:underline"
+              className="mt-3 inline-flex items-center gap-2 break-all text-lg underline-offset-4 hover:underline"
             >
               {profile.email}
             </a>

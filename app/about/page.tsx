@@ -83,7 +83,7 @@ export default function AboutPage() {
                     <strong className="font-medium">Email</strong>{" "}
                     <a
                       href={`mailto:${profile.email}`}
-                      className="underline-offset-4 hover:underline"
+                      className="break-all underline-offset-4 hover:underline"
                     >
                       {profile.email}
                     </a>

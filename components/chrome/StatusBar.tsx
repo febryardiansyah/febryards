@@ -7,11 +7,11 @@ export function StatusBar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 text-xs font-mono sm:px-6">
         <Link
           href="/contact"
-          className="group flex items-center gap-2 hover:opacity-80 transition-opacity"
+          className="group flex min-w-0 items-center gap-2 hover:opacity-80 transition-opacity"
           aria-label="Currently open to interesting collaborations"
         >
           <StatusDot />
-          <span className="text-[var(--color-fg)]">
+          <span className="truncate text-[var(--color-fg)]">
             Open to interesting collaborations
           </span>
           <span

@@ -76,7 +76,7 @@ export default function ContactPage() {
                   <span className="block text-[var(--color-muted)]">Email</span>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="text-base underline-offset-4 hover:underline sm:text-lg"
+                    className="break-all text-base underline-offset-4 hover:underline sm:text-lg"
                   >
                     {profile.email}
                   </a>
