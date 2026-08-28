@@ -4,7 +4,7 @@ import { NowPlaying } from "./NowPlaying";
 export function StatusBar() {
   return (
     <div className="w-full border-b border-[var(--color-rule)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2 text-xs font-mono">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 text-xs font-mono sm:px-6">
         <Link
           href="/contact"
           className="group flex items-center gap-2 hover:opacity-80 transition-opacity"

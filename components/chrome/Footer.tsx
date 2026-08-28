@@ -23,7 +23,7 @@ export function Footer() {
 
   return (
     <footer className="mt-24 border-t border-[var(--color-rule)]">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <p className="text-section text-[var(--color-fg)]">

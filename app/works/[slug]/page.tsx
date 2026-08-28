@@ -50,7 +50,7 @@ export default async function WorkPage(
   const { next } = getAdjacentProjects(slug);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 pb-12">
+    <div className="mx-auto max-w-5xl px-4 pb-12 sm:px-6">
       <nav className="pt-8">
         <Link
           href="/"
@@ -60,12 +60,12 @@ export default async function WorkPage(
         </Link>
       </nav>
 
-      <header className="relative overflow-hidden pt-8 md:pt-12">
+      <header className="relative overflow-hidden pt-6 md:pt-12">
         <FloatingDecorations variant="minimal" />
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 text-[10px] sm:gap-3 sm:text-xs">
           <span className="bracket">[ CASE STUDY ]</span>
-          <span aria-hidden className="wiggle text-2xl">
+          <span aria-hidden className="wiggle text-xl sm:text-2xl">
             {project.emoji}
           </span>
           <span className="bracket">{project.year}</span>
@@ -75,19 +75,19 @@ export default async function WorkPage(
         </div>
 
         <Reveal>
-          <h1 className="text-hero mt-4 text-[var(--color-fg)]">
+          <h1 className="text-hero mt-3 text-[var(--color-fg)] sm:mt-4">
             {project.title}
           </h1>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-fg)] md:text-xl">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-fg)] sm:mt-6 sm:text-lg md:text-xl">
             {project.summary}
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <dl className="mt-10 grid gap-6 border-y border-[var(--color-rule)] py-6 sm:grid-cols-3">
+          <dl className="mt-8 grid gap-5 border-y border-[var(--color-rule)] py-5 sm:mt-10 sm:grid-cols-3 sm:gap-6 sm:py-6">
             <Meta label="Role" value={project.role} />
             <Meta label="Year" value={String(project.year)} />
             <Meta label="Categories" value={project.categories.join(", ")} />
@@ -120,16 +120,16 @@ export default async function WorkPage(
         )}
       </Reveal>
 
-      <section className="grid gap-10 py-12 md:grid-cols-[200px,1fr] md:py-16">
+      <section className="grid gap-4 py-10 md:grid-cols-[200px,1fr] md:gap-10 md:py-16">
         <div className="bracket text-[var(--color-muted)]">[ PROBLEM ]</div>
         <Reveal>
-          <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-fg)]">
+          <p className="max-w-2xl text-base leading-relaxed text-[var(--color-fg)] sm:text-lg">
             {project.problem}
           </p>
         </Reveal>
       </section>
 
-      <section className="grid gap-10 border-t border-[var(--color-rule)] py-12 md:grid-cols-[200px,1fr] md:py-16">
+      <section className="grid gap-4 border-t border-[var(--color-rule)] py-10 md:grid-cols-[200px,1fr] md:gap-10 md:py-16">
         <div className="bracket text-[var(--color-muted)]">[ SOLUTION ]</div>
         <Reveal>
           <ul className="space-y-4">
@@ -137,7 +137,7 @@ export default async function WorkPage(
               <li key={i} className="flex gap-3 text-[var(--color-fg)]">
                 <span
                   aria-hidden
-                  className="font-mono text-xs text-[var(--color-muted)]"
+                  className="shrink-0 font-mono text-xs text-[var(--color-muted)]"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -148,7 +148,7 @@ export default async function WorkPage(
         </Reveal>
       </section>
 
-      <section className="grid gap-10 border-t border-[var(--color-rule)] py-12 md:grid-cols-[200px,1fr] md:py-16">
+      <section className="grid gap-4 border-t border-[var(--color-rule)] py-10 md:grid-cols-[200px,1fr] md:gap-10 md:py-16">
         <div className="bracket text-[var(--color-muted)]">[ STACK ]</div>
         <Reveal>
           <div className="flex flex-wrap gap-2">
@@ -162,14 +162,14 @@ export default async function WorkPage(
       </section>
 
       {project.metrics && project.metrics.length > 0 && (
-        <section className="grid gap-10 border-t border-[var(--color-rule)] py-12 md:grid-cols-[200px,1fr] md:py-16">
+        <section className="grid gap-4 border-t border-[var(--color-rule)] py-10 md:grid-cols-[200px,1fr] md:gap-10 md:py-16">
           <div className="bracket text-[var(--color-muted)]">[ IMPACT ]</div>
           <Reveal>
-            <ul className="grid gap-6 sm:grid-cols-2">
+            <ul className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               {project.metrics.map((m) => (
                 <li
                   key={m.label}
-                  className="rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] p-5"
+                  className="rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] p-4 sm:p-5"
                 >
                   <p className="bracket text-[var(--color-muted)]">
                     {m.label}
@@ -235,10 +235,10 @@ export default async function WorkPage(
       {next && (
         <Link
           href={`/works/${next.slug}`}
-          className="group mt-8 block border-t border-[var(--color-rule)] py-12 transition-colors hover:bg-[var(--color-rule)]/30"
+          className="group mt-8 block border-t border-[var(--color-rule)] py-10 transition-colors hover:bg-[var(--color-rule)]/30 sm:py-12"
         >
           <p className="bracket text-[var(--color-muted)]">[ NEXT PROJECT ]</p>
-          <p className="mt-3 text-section text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent-2)]">
+          <p className="mt-3 text-3xl font-display leading-tight text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent-2)] sm:text-section">
             {next.title} →
           </p>
         </Link>

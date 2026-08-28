@@ -47,7 +47,7 @@ export function MarqueeCTA({
             aria-label={ariaLabel}
             aria-hidden={i > 0 ? "true" : undefined}
             tabIndex={i > 0 ? -1 : undefined}
-            className={`${pillClass} mr-4 cta-pulse shrink-0`}
+            className={`${pillClass} mr-3 cta-pulse shrink-0 whitespace-nowrap px-4 py-2 text-xs sm:mr-4 sm:px-5 sm:py-2.5 sm:text-sm ${i === 0 ? "" : ""}`}
             data-cursor="hover"
           >
             <span>{text}</span>
@@ -93,9 +93,9 @@ export function MarqueeText({
         style={{ ["--marquee-duration" as string]: durationFor(speed) }}
       >
         {Array.from({ length: 6 }).map((_, i) => (
-          <span key={i} className={`mr-8 inline-flex shrink-0 ${itemClassName}`}>
+          <span key={i} className={`mr-6 inline-flex shrink-0 sm:mr-8 ${itemClassName}`}>
             <span aria-hidden={i > 0 ? "true" : undefined}>{children}</span>
-            {separator && <span className="ml-8">{separator}</span>}
+            {separator && <span className="ml-6 sm:ml-8">{separator}</span>}
           </span>
         ))}
       </div>

@@ -13,12 +13,12 @@ export function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <div className="dashed-frame p-8 text-center">
-        <p className="bracket">[ MESSAGE SENT ]</p>
-        <p className="mt-4 text-display text-[var(--color-fg)]">
+      <div className="dashed-frame p-5 text-center sm:p-8">
+        <p className="bracket text-[10px] sm:text-xs">[ MESSAGE SENT ]</p>
+        <p className="mt-3 text-2xl font-display leading-tight text-[var(--color-fg)] sm:mt-4 sm:text-display">
           Thanks — I&apos;ll reply soon.
         </p>
-        <p className="mt-2 text-[var(--color-muted)]">
+        <p className="mt-2 text-sm text-[var(--color-muted)] sm:text-base">
           I read every message and try to respond within a couple of days.
         </p>
       </div>
@@ -29,7 +29,7 @@ export function ContactForm() {
     state.status === "error" ? state.fieldErrors ?? {} : {};
 
   return (
-    <form action={formAction} className="space-y-5" noValidate>
+    <form action={formAction} className="space-y-4 sm:space-y-5" noValidate>
       <div className="hidden" aria-hidden>
         <label>
           Website
@@ -92,14 +92,15 @@ export function ContactForm() {
         </p>
       )}
 
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-col items-stretch justify-between gap-3 pt-2 sm:flex-row sm:items-center">
         <p className="text-xs text-[var(--color-muted)]">
-          Replies go to febryardiansyah27@gmail.com.
+          Replies go to{" "}
+          <span className="block sm:inline">febryardiansyah27@gmail.com.</span>
         </p>
         <button
           type="submit"
           disabled={isPending}
-          className="btn-pill disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-pill w-full justify-center disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
           {isPending ? "Sending…" : "Send message"}
           <span aria-hidden>→</span>

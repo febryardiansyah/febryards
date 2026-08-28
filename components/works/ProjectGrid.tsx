@@ -9,13 +9,17 @@ type ProjectGridProps = {
 
 export function ProjectGrid({ selected, archive }: ProjectGridProps) {
   return (
-    <div className="space-y-24">
+    <div className="space-y-16 sm:space-y-24">
       <section>
-        <div className="flex items-baseline justify-between">
-          <h2 className="bracket">[ 01 / SELECTED ]</h2>
-          <span className="bracket">{selected.length} works</span>
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="bracket text-[10px] sm:text-xs">
+            [ 01 / SELECTED ]
+          </h2>
+          <span className="bracket text-[10px] sm:text-xs">
+            {selected.length} works
+          </span>
         </div>
-        <ul className="mt-8 grid gap-16 md:grid-cols-2">
+        <ul className="mt-8 grid gap-12 md:grid-cols-2 md:gap-16">
           {selected.map((p, i) => (
             <li key={p.slug}>
               <ProjectCard project={p} index={i} />
@@ -25,11 +29,15 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
       </section>
 
       <section>
-        <div className="flex items-baseline justify-between">
-          <h2 className="bracket">[ 02 / ARCHIVE ]</h2>
-          <span className="bracket">{archive.length} works</span>
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="bracket text-[10px] sm:text-xs">
+            [ 02 / ARCHIVE ]
+          </h2>
+          <span className="bracket text-[10px] sm:text-xs">
+            {archive.length} works
+          </span>
         </div>
-        <p className="mt-3 max-w-prose text-sm text-[var(--color-muted)]">
+        <p className="mt-3 max-w-prose text-xs text-[var(--color-muted)] sm:text-sm">
           Older projects, hobby builds, and open-source experiments. Smaller,
           scrappier, less polished.
         </p>

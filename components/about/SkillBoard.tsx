@@ -3,7 +3,7 @@ import { CornerBracket, SkillChip } from "@/components/ornament/Ornaments";
 
 export function SkillBoard() {
   return (
-    <section className="dashed-frame relative px-6 py-10 md:px-10 md:py-12">
+    <section className="dashed-frame relative px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12">
       <CornerBracket
         position="tl"
         className="absolute left-2 top-2 h-4 w-4 text-[var(--color-muted)]"
@@ -21,16 +21,18 @@ export function SkillBoard() {
         className="absolute bottom-2 right-2 h-4 w-4 text-[var(--color-muted)]"
       />
 
-      <div className="mb-6 flex items-center justify-between">
-        <p className="bracket">[ SKILLBOARD · LV 9 / 9 YRS XP ]</p>
-        <p className="bracket hidden md:block">HP ∞ · MP ∞</p>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <p className="bracket text-[10px] sm:text-xs">
+          [ SKILLBOARD · LV 9 / 9 YRS XP ]
+        </p>
+        <p className="bracket hidden text-xs md:block">HP ∞ · MP ∞</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 md:gap-6">
         {skillGroups.map((group, idx) => (
           <div
             key={group.label}
-            className="relative rounded-lg border border-dashed border-[var(--color-rule)] p-5"
+            className="relative rounded-lg border border-dashed border-[var(--color-rule)] p-4 sm:p-5"
           >
             <p className="bracket mb-3 text-[var(--color-muted)]">
               0{idx + 1} — {group.label}

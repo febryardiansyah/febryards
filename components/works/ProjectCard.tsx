@@ -19,26 +19,26 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       data-cursor="hover"
     >
       <div className="flex items-baseline justify-between">
-        <p className="bracket">[ WORK #{idx} ]</p>
-        <span className="bracket transition-colors group-hover:text-[var(--color-accent-2)]">
+        <p className="bracket text-[10px] sm:text-xs">[ WORK #{idx} ]</p>
+        <span className="bracket text-[10px] transition-colors group-hover:text-[var(--color-accent-2)] sm:text-xs">
           {project.year}
         </span>
       </div>
 
-      <div className="mt-3 flex items-center gap-3">
-        <span aria-hidden className="wiggle text-2xl">
+      <div className="mt-3 flex items-center gap-2 sm:gap-3">
+        <span aria-hidden className="wiggle text-xl sm:text-2xl">
           {project.emoji}
         </span>
-        <h3 className="text-display text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent-2)]">
+        <h3 className="text-2xl font-display leading-tight text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent-2)] sm:text-display">
           {project.title}
         </h3>
       </div>
 
-      <p className="mt-1 text-sm text-[var(--color-muted)]">
+      <p className="mt-1 text-xs text-[var(--color-muted)] sm:text-sm">
         {project.year} / {project.categories.join(", ")}
       </p>
 
-      <TiltCard className="mt-5">
+      <TiltCard className="mt-4 sm:mt-5">
         <div className="relative overflow-hidden rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] glow">
           <CyclingThumb
             frames={project.thumbs}
@@ -58,7 +58,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
       </TiltCard>
 
-      <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+      <div className="mt-4 flex flex-wrap items-center gap-1.5 text-[10px] sm:gap-2 sm:text-xs">
         <span className="sticker-ink">{project.role}</span>
         {project.stack.slice(0, 3).map((s) => (
           <span key={s} className="sticker">
@@ -74,7 +74,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         {project.summary}
       </p>
 
-      <p className="mt-5 inline-flex items-center gap-2 text-sm text-[var(--color-fg)] underline-offset-4 group-hover:underline">
+      <p className="mt-4 inline-flex items-center gap-2 text-xs text-[var(--color-fg)] underline-offset-4 group-hover:underline sm:mt-5 sm:text-sm">
         Open case study
         <span aria-hidden className="transition-transform group-hover:translate-x-1">
           →

@@ -20,31 +20,33 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-12">
-      <section className="relative overflow-hidden pt-12 pb-12 md:pt-20">
+    <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
+      <section className="relative overflow-hidden pt-8 pb-10 md:pt-20 md:pb-12">
         <FloatingDecorations variant="hero" />
 
-        <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--color-muted)] sm:gap-3 sm:text-sm">
           <StarBurst className="h-4 w-4 text-[var(--color-accent)] twinkle" />
           <SectionLabel index={0} label="ABOUT" />
           <span aria-hidden>/</span>
-          <span className="bracket">5 chapters · 9+ years</span>
+          <span className="bracket text-[10px] sm:text-xs">
+            5 chapters · 9+ years
+          </span>
         </div>
 
         <Reveal>
-          <h1 className="text-hero mt-6 text-[var(--color-fg)]">
+          <h1 className="text-hero mt-5 text-[var(--color-fg)] sm:mt-6">
             Hi, I&apos;m <span className="italic-accent">Febry</span>.
           </h1>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-fg)] md:text-xl">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-fg)] sm:mt-6 sm:text-lg md:text-xl">
             {profile.longBio}
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-4 max-w-2xl text-[var(--color-muted)]">
+          <p className="mt-3 max-w-2xl text-sm text-[var(--color-muted)] sm:mt-4 sm:text-base">
             Mobile apps developer at <strong>{profile.location}</strong>. I
             care about shipping software that survives contact with real
             users — accessible, reliable, and pleasant to maintain.
@@ -52,7 +54,7 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal delay={0.3}>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-[var(--color-rule)] bg-[var(--color-card)] p-4 glow md:p-6">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-[var(--color-rule)] bg-[var(--color-card)] p-4 glow sm:mt-12 sm:p-6">
             <div className="grid items-center gap-8 md:grid-cols-[260px,1fr]">
               <AnimatedAvatar
                 src={profile.avatarUrl}
@@ -93,7 +95,7 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal delay={0.4}>
-          <dl className="mt-12 grid grid-cols-3 gap-6 border-y border-[var(--color-rule)]">
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-y border-[var(--color-rule)] sm:mt-12 sm:gap-6">
             <Stat label="Years shipping" value={9} suffix="+" />
             <Stat label="Apps shipped" value={11} />
             <Stat label="OSS stars" value={300} suffix="+" />
@@ -101,7 +103,7 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal delay={0.5}>
-          <div className="mt-12 overflow-hidden">
+          <div className="mt-10 overflow-hidden sm:mt-12">
             <MarqueeText
               speed="fast"
               reverse
@@ -125,10 +127,10 @@ export default function AboutPage() {
 
       <hr className="hairline" />
 
-      <section className="py-12 md:py-16">
-        <div className="flex items-baseline justify-between">
+      <section className="py-10 md:py-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
           <SectionLabel index={1} label="SKILLBOARD" count={5} />
-          <span className="bracket">{profile.role}</span>
+          <span className="bracket text-[10px] sm:text-xs">{profile.role}</span>
         </div>
         <Reveal>
           <h3 className="text-section mt-3 max-w-3xl text-[var(--color-fg)]">
@@ -137,7 +139,7 @@ export default function AboutPage() {
           </h3>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <SkillBoard />
           </div>
         </Reveal>
@@ -145,10 +147,10 @@ export default function AboutPage() {
 
       <hr className="hairline" />
 
-      <section className="py-12 md:py-16">
-        <div className="flex items-baseline justify-between">
+      <section className="py-10 md:py-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
           <SectionLabel index={2} label="EXPERIENCE" count={5} />
-          <span className="bracket">5 chapters</span>
+          <span className="bracket text-[10px] sm:text-xs">5 chapters</span>
         </div>
         <Reveal>
           <h3 className="text-section mt-3 max-w-3xl text-[var(--color-fg)]">
@@ -158,7 +160,7 @@ export default function AboutPage() {
           </h3>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <Timeline />
           </div>
         </Reveal>
@@ -166,10 +168,10 @@ export default function AboutPage() {
 
       <hr className="hairline" />
 
-      <section className="py-12 md:py-16">
-        <div className="flex items-baseline justify-between">
+      <section className="py-10 md:py-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
           <SectionLabel index={3} label="APPROACH" count={5} />
-          <span className="bracket">5 steps</span>
+          <span className="bracket text-[10px] sm:text-xs">5 steps</span>
         </div>
         <Reveal>
           <h3 className="text-section mt-3 max-w-3xl text-[var(--color-fg)]">
@@ -178,23 +180,23 @@ export default function AboutPage() {
           </h3>
         </Reveal>
 
-        <ol className="mt-10 space-y-6">
+        <ol className="mt-8 space-y-6 sm:mt-10">
           {approachSteps.map((step, i) => (
             <Reveal key={step.n} delay={i * 0.05}>
-              <li className="grid gap-2 border-t border-[var(--color-rule)] pt-6 md:grid-cols-[120px,1fr] md:gap-8">
+              <li className="grid gap-2 border-t border-[var(--color-rule)] pt-5 sm:pt-6 md:grid-cols-[120px,1fr] md:gap-8">
                 <div className="flex items-center gap-3">
-                  <span className="bracket text-[var(--color-muted)]">
+                  <span className="bracket text-[10px] text-[var(--color-muted)] sm:text-xs">
                     STEP
                   </span>
-                  <span className="wiggle font-display text-4xl text-[var(--color-accent-2)]">
+                  <span className="wiggle font-display text-3xl text-[var(--color-accent-2)] sm:text-4xl">
                     {step.n}
                   </span>
                 </div>
                 <div>
-                  <h4 className="text-display text-[var(--color-fg)]">
+                  <h4 className="text-lg font-display leading-tight text-[var(--color-fg)] sm:text-display">
                     {step.title}
                   </h4>
-                  <p className="mt-2 max-w-prose text-[var(--color-muted)]">
+                  <p className="mt-2 max-w-prose text-sm text-[var(--color-muted)] sm:text-base">
                     {step.body}
                   </p>
                 </div>
@@ -206,10 +208,10 @@ export default function AboutPage() {
 
       <hr className="hairline" />
 
-      <section className="py-12 md:py-16">
-        <div className="flex items-baseline justify-between">
+      <section className="py-10 md:py-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
           <SectionLabel index={4} label="OFF-CLOCK" />
-          <span className="bracket">interests</span>
+          <span className="bracket text-[10px] sm:text-xs">interests</span>
         </div>
         <Reveal>
           <h3 className="text-section mt-3 max-w-3xl text-[var(--color-fg)]">
@@ -218,11 +220,13 @@ export default function AboutPage() {
           </h3>
         </Reveal>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 md:grid-cols-2">
           {Object.entries(interestMap).map(([category, items], i) => (
             <Reveal key={category} delay={i * 0.05}>
-              <div className="rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] p-6 transition-colors hover:border-[var(--color-fg)]/40">
-                <p className="bracket mb-3">[ {category.toUpperCase()} ]</p>
+              <div className="rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] p-5 transition-colors hover:border-[var(--color-fg)]/40 sm:p-6">
+                <p className="bracket mb-3 text-[10px] sm:text-xs">
+                  [ {category.toUpperCase()} ]
+                </p>
                 <ul className="space-y-2 text-sm">
                   {items.map((it) => (
                     <li
@@ -243,17 +247,17 @@ export default function AboutPage() {
       </section>
 
       <Reveal>
-        <section className="dashed-frame relative mt-16 px-8 py-10 text-center">
+        <section className="dashed-frame relative mt-12 px-5 py-8 text-center sm:mt-16 sm:px-8 sm:py-10">
           <FloatingDecorations variant="minimal" />
           <AnimatedSquiggle className="mx-auto" />
           <p className="mt-4 text-section text-[var(--color-fg)]">
             Want to see more?
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/" className="btn-pill-outline" data-cursor="hover">
+          <div className="mt-5 flex flex-col justify-center gap-3 sm:mt-6 sm:flex-row">
+            <Link href="/" className="btn-pill-outline w-full sm:w-auto" data-cursor="hover">
               ← Works
             </Link>
-            <Link href="/contact" className="btn-pill cta-pulse" data-cursor="hover">
+            <Link href="/contact" className="btn-pill cta-pulse w-full sm:w-auto" data-cursor="hover">
               Say hello →
             </Link>
           </div>
@@ -261,8 +265,8 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal>
-        <section className="mt-16">
-          <div className="bracket mb-3 text-[var(--color-muted)]">
+        <section className="mt-12 sm:mt-16">
+          <div className="bracket mb-3 text-[10px] text-[var(--color-muted)] sm:text-xs">
             [ CTA · ALWAYS ON ]
           </div>
           <MarqueeCTA
@@ -288,9 +292,11 @@ function Stat({
   suffix?: string;
 }) {
   return (
-    <div className="py-6">
-      <dt className="bracket text-[var(--color-muted)]">{label}</dt>
-      <dd className="mt-1 font-display text-4xl text-[var(--color-fg)] md:text-5xl">
+    <div className="py-4 sm:py-6">
+      <dt className="bracket text-[10px] text-[var(--color-muted)] sm:text-xs">
+        {label}
+      </dt>
+      <dd className="mt-1 font-display text-3xl text-[var(--color-fg)] sm:text-4xl md:text-5xl">
         <CountUp value={value} suffix={suffix} />
       </dd>
     </div>

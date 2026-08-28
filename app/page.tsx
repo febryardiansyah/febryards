@@ -19,26 +19,28 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-12">
-      <section className="relative overflow-hidden pt-12 pb-16 md:pt-20">
+    <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
+      <section className="relative overflow-hidden pt-8 pb-12 md:pt-20 md:pb-16">
         <FloatingDecorations variant="hero" />
 
-        <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--color-muted)] sm:gap-3 sm:text-sm">
           <StarBurst className="h-4 w-4 text-[var(--color-accent)] twinkle" />
           <SectionLabel index={0} label="SELECTED WORKS" />
           <span aria-hidden className="text-[var(--color-muted)]">/</span>
-          <span className="bracket">{projects.length} projects indexed</span>
+          <span className="bracket text-[10px] sm:text-xs">
+            {projects.length} projects indexed
+          </span>
         </div>
 
         <Reveal>
-          <h1 className="text-hero mt-6 text-[var(--color-fg)]">
+          <h1 className="text-hero mt-5 text-[var(--color-fg)] sm:mt-6">
             <span className="block">Febry</span>
             <span className="block italic-accent">Ardiansyah</span>
           </h1>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-2xl text-lg text-[var(--color-fg)] md:text-xl">
+          <p className="mt-5 max-w-2xl text-base text-[var(--color-fg)] sm:mt-6 sm:text-lg md:text-xl">
             {profile.tagline}{" "}
             <span className="text-[var(--color-muted)]">
               I build mobile apps and the frontends that connect to them —
@@ -104,24 +106,24 @@ export default function HomePage() {
       </section>
 
       <Reveal>
-        <section className="dashed-frame relative mt-16 px-8 py-10 text-center">
+        <section className="dashed-frame relative mt-12 px-5 py-8 text-center sm:mt-16 sm:px-8 sm:py-10">
           <FloatingDecorations variant="minimal" />
           <AnimatedSquiggle className="mx-auto" />
           <p className="mt-4 text-section text-[var(--color-fg)]">
             Got a product in mind?
           </p>
-          <p className="mt-2 text-[var(--color-muted)]">
+          <p className="mt-2 text-sm text-[var(--color-muted)] sm:text-base">
             I&apos;m open to interesting collaborations — let&apos;s talk.
           </p>
-          <Link href="/contact" className="btn-pill mt-6 cta-pulse" data-cursor="hover">
+          <Link href="/contact" className="btn-pill mt-5 cta-pulse sm:mt-6" data-cursor="hover">
             Say hello →
           </Link>
         </section>
       </Reveal>
 
       <Reveal>
-        <section className="mt-16">
-          <div className="bracket mb-3 text-[var(--color-muted)]">
+        <section className="mt-12 sm:mt-16">
+          <div className="bracket mb-3 text-[10px] text-[var(--color-muted)] sm:text-xs">
             [ CTA · ALWAYS ON ]
           </div>
           <MarqueeCTA
@@ -146,9 +148,11 @@ function Stat({
   suffix?: string;
 }) {
   return (
-    <div className="py-6">
-      <dt className="bracket text-[var(--color-muted)]">{label}</dt>
-      <dd className="mt-1 font-display text-4xl text-[var(--color-fg)] md:text-5xl">
+    <div className="py-4 sm:py-6">
+      <dt className="bracket text-[10px] text-[var(--color-muted)] sm:text-xs">
+        {label}
+      </dt>
+      <dd className="mt-1 font-display text-3xl text-[var(--color-fg)] sm:text-4xl md:text-5xl">
         <CountUp value={value} suffix={suffix} />
       </dd>
     </div>
