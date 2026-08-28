@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { MarqueeCTA } from "@/components/motion/MarqueeCTA";
 import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
+import { CodePlaceholder } from "@/components/ornament/CodePlaceholder";
 import {
   getAdjacentProjects,
   getProjectBySlug,
@@ -21,6 +22,7 @@ export async function generateMetadata(
   const { slug } = await props.params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Not found" };
+  const coverImages = project.gallery.length > 0 ? project.gallery : [];
   return {
     title: project.title,
     description: project.summary,
@@ -28,13 +30,13 @@ export async function generateMetadata(
       title: project.title,
       description: project.summary,
       type: "article",
-      images: project.thumbs.map((t) => ({ url: t })),
+      images: coverImages.map((t) => ({ url: t })),
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description: project.summary,
-      images: project.thumbs,
+      images: coverImages,
     },
   };
 }
@@ -46,7 +48,6 @@ export default async function WorkPage(
   const project = getProjectBySlug(slug);
   if (!project) notFound();
   const { next } = getAdjacentProjects(slug);
-  const cover = project.thumbs[0];
 
   return (
     <div className="mx-auto max-w-5xl px-6 pb-12">
@@ -95,19 +96,28 @@ export default async function WorkPage(
       </header>
 
       <Reveal>
-        <div className="relative mt-10 overflow-hidden rounded-2xl border border-[var(--color-rule)] bg-[var(--color-card)] glow">
-          <div className="aspect-[16/9]">
-            <Image
-              src={cover}
-              alt={`${project.title} cover`}
-              width={1280}
-              height={720}
-              className="h-full w-full object-cover"
-              unoptimized
-              priority
+        {project.gallery.length > 0 ? (
+          <div className="relative mt-10 overflow-hidden rounded-2xl border border-[var(--color-rule)] bg-[var(--color-card)] glow">
+            <div className="aspect-[16/9]">
+              <Image
+                src={project.gallery[0]}
+                alt={`${project.title} cover`}
+                width={1280}
+                height={720}
+                className="h-full w-full object-cover"
+                unoptimized
+                priority
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="mt-10">
+            <CodePlaceholder
+              emoji={project.emoji}
+              label={`${project.slug} · code preview`}
             />
           </div>
-        </div>
+        )}
       </Reveal>
 
       <section className="grid gap-10 py-12 md:grid-cols-[200px,1fr] md:py-16">

@@ -1,5 +1,6 @@
 import type { Project } from "@/data/projects";
 import { ProjectCard } from "./ProjectCard";
+import { ArchiveCard } from "./ArchiveCard";
 
 type ProjectGridProps = {
   selected: Project[];
@@ -28,10 +29,14 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
           <h2 className="bracket">[ 02 / ARCHIVE ]</h2>
           <span className="bracket">{archive.length} works</span>
         </div>
-        <ul className="mt-8 grid gap-12 md:grid-cols-2">
+        <p className="mt-3 max-w-prose text-sm text-[var(--color-muted)]">
+          Older projects, hobby builds, and open-source experiments. Smaller,
+          scrappier, less polished.
+        </p>
+        <ul className="mt-6 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
           {archive.map((p, i) => (
             <li key={p.slug}>
-              <ProjectCard project={p} index={selected.length + i} />
+              <ArchiveCard project={p} index={selected.length + i} />
             </li>
           ))}
         </ul>
