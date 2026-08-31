@@ -43,8 +43,8 @@ export default function HomePage() {
           <p className="mt-5 max-w-2xl text-base text-[var(--color-fg)] sm:mt-6 sm:text-lg md:text-xl">
             {profile.tagline}{" "}
             <span className="text-[var(--color-muted)]">
-              I build mobile apps and the frontends that connect to them —
-              Flutter, Next.js, and the boring glue that ships reliably.
+              Mobile apps and the frontends that connect to them — Flutter,
+              Next.js, and the boring glue that ships reliably.
             </span>
           </p>
         </Reveal>
@@ -90,7 +90,7 @@ export default function HomePage() {
         <Reveal delay={0.4}>
           <dl className="mt-12 grid grid-cols-3 gap-6 border-y border-[var(--color-rule)]">
             <Stat label="Years shipping" value={9} suffix="+" />
-            <Stat label="Apps launched" value={11} />
+            <Stat label="Apps shipped" value={11} />
             <Stat label="OSS stars" value={300} suffix="+" />
           </dl>
         </Reveal>

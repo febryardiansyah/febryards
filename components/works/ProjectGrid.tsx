@@ -39,7 +39,7 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
         </div>
         <p className="mt-3 max-w-prose text-xs text-[var(--color-muted)] sm:text-sm">
           Older projects, hobby builds, and open-source experiments. Smaller,
-          scrappier, less polished.
+          scrappier, still sharp.
         </p>
         <ul className="mt-6 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
           {archive.map((p, i) => (
