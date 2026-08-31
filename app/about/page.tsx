@@ -12,6 +12,7 @@ import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
 import { AnimatedSquiggle } from "@/components/motion/AnimatedSquiggle";
 import { AnimatedAvatar } from "@/components/ornament/AnimatedAvatar";
 import { profile, approachSteps, interests as interestMap } from "@/data/profile";
+import { Hero3DLoader } from "@/components/three/Hero3DLoader";
 
 export const metadata: Metadata = {
   title: "Febry Ardiansyah",
@@ -24,8 +25,9 @@ const today = new Date().toISOString().slice(0, 10);
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-      <header className="relative pt-8 pb-10 md:pt-16 md:pb-12">
+      <header className="relative isolate pt-8 pb-10 md:pt-16 md:pb-12">
         <FloatingDecorations variant="hero" />
+        <Hero3DLoader />
 
         <div className="flex flex-wrap items-baseline justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)] sm:text-[11px]">
           <span className="flex items-center gap-2">
