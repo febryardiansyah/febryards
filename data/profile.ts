@@ -15,7 +15,7 @@ export const profile = {
   cvUrl:
     "https://drive.google.com/file/d/1CC8hQ_k18P-dIc7tBLFDbbB0wguUo4jU/view?usp=sharing",
   avatarUrl:
-    "https://res.cloudinary.com/febryar/image/upload/v1741435733/Febry_Ardiansyah_-_IT_c9x8wf.jpg",
+    "https://avatars.githubusercontent.com/u/33514300?v=4",
 };
 
 export const approachSteps = [
@@ -48,11 +48,12 @@ export const approachSteps = [
 
 export const interests = {
   Reading: [
-    "The Pragmatic Programmer",
+    "Rich Dad Poor Dad (R. Kiyosaki)",
+    "Psychology of Money (M. Housel)",
     "Clean Architecture (R. C. Martin)",
     "Designing Data-Intensive Applications",
   ],
-  Music: ["Lo-fi beats", "Tame Impala", "Mac DeMarco", "Khruangbin"],
-  Games: ["Stardew Valley", "Persona 5", "Slay the Spire", "Factorio"],
-  Hobbies: ["Badminton", "Mechanical keyboards", "Open-source tinkering", "Coffee brewing"],
+  Music: ["Lo-fi beats", "Maroon 5", "Neck Deep", "The 1975", "Simple Plan", "Oasis"],
+  Games: ["Counter-Strike 2", "Fifa", "Chess", "Minecraft", "Valorant",],
+  Hobbies: ["Running", "Football", "Open-source tinkering", "Badminton", "Photography", "Traveling"],
 };

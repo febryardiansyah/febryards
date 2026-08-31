@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { MonogramMark } from "@/components/ornament/Monogram";
 
 const links = [
-  { href: "/", label: "Works" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "About" },
+  { href: "/works", label: "Works" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -26,7 +26,7 @@ export function Nav() {
           {links.map((l) => {
             const active =
               l.href === "/"
-                ? pathname === "/" || pathname.startsWith("/works")
+                ? pathname === "/" || pathname.startsWith("/about")
                 : pathname.startsWith(l.href);
             return (
               <li key={l.href}>

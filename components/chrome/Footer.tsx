@@ -40,7 +40,7 @@ export function Footer() {
             <p className="bracket mb-3">[ 02 / NAVIGATE ]</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="hover:opacity-70">
+                <Link href="/works" className="hover:opacity-70">
                   Works
                 </Link>
               </li>

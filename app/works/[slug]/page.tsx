@@ -53,7 +53,7 @@ export default async function WorkPage(
     <div className="mx-auto max-w-5xl px-4 pb-12 sm:px-6">
       <nav className="pt-8">
         <Link
-          href="/"
+          href="/works"
           className="bracket inline-flex flex-wrap items-center gap-2 break-words hover:opacity-70"
         >
           ← Works / {project.title}

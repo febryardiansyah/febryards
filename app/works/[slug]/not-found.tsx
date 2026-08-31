@@ -10,7 +10,7 @@ export default function NotFound() {
       <p className="mt-4 max-w-prose text-[var(--color-muted)]">
         Maybe a typo, or maybe it got archived. Try the works index.
       </p>
-      <Link href="/" className="btn-pill mt-8">
+      <Link href="/works" className="btn-pill mt-8">
         ← Back to Works
       </Link>
     </div>
