@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MarqueeCTA, MarqueeText } from "@/components/motion/MarqueeCTA";
+import { MarqueeCTA } from "@/components/motion/MarqueeCTA";
 import { Reveal } from "@/components/motion/Reveal";
-import { SectionLabel } from "@/components/motion/SectionLabel";
-import { CountUp } from "@/components/motion/CountUp";
-import { ProjectGrid } from "@/components/works/ProjectGrid";
 import { StarBurst } from "@/components/ornament/Ornaments";
 import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
 import { AnimatedSquiggle } from "@/components/motion/AnimatedSquiggle";
-import { profile } from "@/data/profile";
-import { selectedProjects, archiveProjects, projects } from "@/data/projects";
+import { ProjectGrid } from "@/components/works/ProjectGrid";
+import { projects, selectedProjects, archiveProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Selected Works",
@@ -17,85 +14,105 @@ export const metadata: Metadata = {
     "A curated selection of mobile apps, frontend builds, and open-source projects by Febry Ardiansyah.",
 };
 
-export default function HomePage() {
+const yearRange = (() => {
+  const years = projects.map((p) => p.year);
+  const min = Math.min(...years);
+  const max = Math.max(...years);
+  return min === max ? `${min}` : `${min}–${max}`;
+})();
+
+const stackCounts = (() => {
+  const counts = new Map<string, number>();
+  for (const p of projects) {
+    for (const s of p.stack) {
+      counts.set(s, (counts.get(s) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8);
+})();
+
+export default function WorksPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
-      <section className="relative overflow-hidden pt-8 pb-12 md:pt-20 md:pb-16">
+      <header className="relative pt-8 pb-10 md:pt-14 md:pb-12">
         <FloatingDecorations variant="hero" />
 
-        <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--color-muted)] sm:gap-3 sm:text-sm">
-          <StarBurst className="h-4 w-4 text-[var(--color-accent)] twinkle" />
-          <SectionLabel index={0} label="SELECTED WORKS" />
-          <span aria-hidden className="text-[var(--color-muted)]">/</span>
-          <span className="bracket text-[10px] sm:text-xs">
-            {projects.length} projects indexed
+        <div className="flex flex-wrap items-baseline justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)] sm:text-[11px]">
+          <span className="flex items-center gap-2">
+            <StarBurst className="h-3.5 w-3.5 text-[var(--color-accent)] twinkle" />
+            <span>Index 02 — The Works File</span>
           </span>
+          <span className="hidden sm:inline">Filed {yearRange} · Jkt</span>
         </div>
 
-        <Reveal>
-          <h1 className="text-hero mt-5 text-[var(--color-fg)] sm:mt-6">
-            <span className="block">Febry</span>
-            <span className="block italic-accent">Ardiansyah</span>
-          </h1>
-        </Reveal>
+        <div className="mt-6 grid gap-8 md:mt-10 md:grid-cols-12 md:gap-10">
+          <Reveal className="md:col-span-8">
+            <h1
+              className="font-display text-[var(--color-fg)]"
+              style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: 0.95 }}
+            >
+              Selected
+              <em className="italic-accent not-italic font-display"> Works</em>
+              <span className="text-[var(--color-accent-2)]">.</span>
+            </h1>
+            <p className="mt-3 max-w-md font-mono text-sm text-[var(--color-muted)] sm:text-base">
+              — shipping mobile apps & frontends, since 2020.
+            </p>
+          </Reveal>
 
-        <Reveal delay={0.1}>
-          <p className="mt-5 max-w-2xl text-base text-[var(--color-fg)] sm:mt-6 sm:text-lg md:text-xl">
-            {profile.tagline}{" "}
-            <span className="text-[var(--color-muted)]">
-              Mobile apps and the frontends that connect to them — Flutter,
-              Next.js, and the boring glue that ships reliably.
-            </span>
-          </p>
-        </Reveal>
+          <Reveal delay={0.1} className="md:col-span-4 md:pt-2">
+            <div className="border-l border-[var(--color-rule)] pl-4">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+                Reading the index
+              </p>
+              <p className="mt-2 text-sm text-[var(--color-fg)]">
+                {projects.length} projects across{" "}
+                <span className="font-mono">{yearRange}</span>. Each entry
+                includes the problem, the stack, and what shipped — no filler.
+              </p>
+              <p className="mt-3 text-sm text-[var(--color-muted)]">
+                Open the case files below, or{" "}
+                <Link
+                  href="/contact"
+                  className="text-[var(--color-fg)] underline-offset-4 hover:underline"
+                  data-cursor="hover"
+                >
+                  commission a new one
+                </Link>
+                .
+              </p>
+            </div>
+          </Reveal>
+        </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="/contact" className="btn-pill cta-pulse" data-cursor="hover">
-              Start a project
-              <span aria-hidden>→</span>
-            </Link>
-            <Link href="/about" className="btn-pill-outline" data-cursor="hover">
-              About me
-            </Link>
-            <span className="bracket hidden text-[var(--color-muted)] md:inline">
-              · reply within 48h
+          <div className="mt-10 flex flex-wrap items-end justify-between gap-4 border-y border-[var(--color-rule)] py-3 sm:mt-14">
+            <div className="flex items-baseline gap-3 font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] sm:text-[11px]">
+              <span>§ 00</span>
+              <span>The Index</span>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] sm:text-[11px]">
+              {selectedProjects.length} selected · {archiveProjects.length} archived · ↓
             </span>
           </div>
         </Reveal>
 
-        <Reveal delay={0.3}>
-          <div className="mt-12 overflow-hidden">
-            <MarqueeText
-              speed="normal"
-              interactive
-              className="text-[var(--color-fg)]"
-              separator={
-                <span className="italic-accent ml-8" aria-hidden>
-                  ✦
-                </span>
-              }
-            >
-              <span className="text-section px-3">
-                Febry{" "}
-                <span className="italic-accent">*</span> Engineer{" "}
-                <span className="italic-accent">*</span> Builder{" "}
-                <span className="italic-accent">*</span> Mobile Apps{" "}
-                <span className="italic-accent">*</span> Flutter{" "}
-                <span className="italic-accent">*</span> Next.js
-              </span>
-            </MarqueeText>
-          </div>
+        <Reveal delay={0.25}>
+          <ul className="mt-6 flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] sm:text-[11px]">
+            {stackCounts.map(([stack, n]) => (
+              <li
+                key={stack}
+                className="rounded-full border border-[var(--color-rule)] px-2.5 py-1"
+              >
+                {stack}
+                <span className="ml-2 text-[var(--color-fg)]">{n}</span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
-
-        <Reveal delay={0.4}>
-          <dl className="mt-12 grid grid-cols-3 gap-6 border-y border-[var(--color-rule)]">
-            <Stat label="Years shipping" value={9} suffix="+" />
-            <Stat label="Apps shipped" value={11} />
-            <Stat label="OSS stars" value={300} suffix="+" />
-          </dl>
-        </Reveal>
-      </section>
+      </header>
 
       <hr className="hairline" />
 
@@ -107,55 +124,48 @@ export default function HomePage() {
       </section>
 
       <Reveal>
-        <section className="dashed-frame relative mt-12 px-5 py-8 text-center sm:mt-16 sm:px-8 sm:py-10">
+        <section className="dashed-frame relative mt-12 px-5 py-10 sm:mt-16 sm:px-10 sm:py-12">
           <FloatingDecorations variant="minimal" />
-          <AnimatedSquiggle className="mx-auto" />
-          <p className="mt-4 text-section text-[var(--color-fg)]">
-            Got a product in mind?
-          </p>
-          <p className="mt-2 text-sm text-[var(--color-muted)] sm:text-base">
-            I&apos;m open to interesting collaborations — let&apos;s talk.
-          </p>
-          <Link href="/contact" className="btn-pill mt-5 cta-pulse sm:mt-6" data-cursor="hover">
-            Say hello →
-          </Link>
+          <div className="grid items-end gap-6 sm:grid-cols-[1fr,auto]">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+                End of index
+              </p>
+              <p className="mt-2 text-section text-[var(--color-fg)]">
+                Like what you see? The next page could be yours.
+              </p>
+              <AnimatedSquiggle className="mt-3" />
+            </div>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <Link href="/about" className="btn-pill-outline" data-cursor="hover">
+                ← About
+              </Link>
+              <Link
+                href="/contact"
+                className="btn-pill cta-pulse"
+                data-cursor="hover"
+              >
+                Start a project →
+              </Link>
+            </div>
+          </div>
         </section>
       </Reveal>
 
       <Reveal>
         <section className="mt-12 sm:mt-16">
-          <div className="bracket mb-3 text-[10px] text-[var(--color-muted)] sm:text-xs">
+          <div className="font-mono mb-3 text-[10px] uppercase tracking-widest text-[var(--color-muted)] sm:text-[11px]">
             [ CTA · ALWAYS ON ]
           </div>
           <MarqueeCTA
-            text="Get in touch — currently shipping, open to side quests"
+            text="Have a brief? I'm reading — let's build it"
             href="/contact"
             ariaLabel="Get in touch"
-            speed="normal"
+            speed="slow"
+            variant="outline"
           />
         </section>
       </Reveal>
-    </div>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  suffix = "",
-}: {
-  label: string;
-  value: number;
-  suffix?: string;
-}) {
-  return (
-    <div className="py-4 sm:py-6">
-      <dt className="bracket text-[10px] text-[var(--color-muted)] sm:text-xs">
-        {label}
-      </dt>
-      <dd className="mt-1 font-display text-3xl text-[var(--color-fg)] sm:text-4xl md:text-5xl">
-        <CountUp value={value} suffix={suffix} />
-      </dd>
     </div>
   );
 }

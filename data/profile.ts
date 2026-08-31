@@ -9,6 +9,7 @@ export const profile = {
     "Software engineer focused on mobile and frontend development. I write clean, maintainable code across Flutter, Next.js, and Node.js. From architecture to deployment, I build products that are reliable, accessible, and built to last.",
   socials: [
     { label: "GitHub", handle: "@febryardiansyah", url: "https://github.com/febryardiansyah/" },
+    { label: "Instagram", handle: "@febryards", url: "https://www.instagram.com/febryards/" },
     { label: "LinkedIn", handle: "Febry Ardiansyah", url: "https://www.linkedin.com/in/febry-ardiansyah-a4b580170/" },
     { label: "X / Twitter", handle: "@febryards", url: "https://x.com/febryards" },
   ],

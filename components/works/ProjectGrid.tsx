@@ -46,7 +46,7 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
         <ul className="mt-6 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
           {archive.map((p, i) => (
             <li key={p.slug}>
-              <PreviewTrigger src={p.thumbs[0]}>
+              <PreviewTrigger src="/icon.png">
                 <ArchiveCard project={p} index={selected.length + i} />
               </PreviewTrigger>
             </li>

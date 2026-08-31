@@ -14,7 +14,7 @@ import { AnimatedAvatar } from "@/components/ornament/AnimatedAvatar";
 import { profile, approachSteps, interests as interestMap } from "@/data/profile";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Febry Ardiansyah",
   description:
     "About Febry Ardiansyah — mobile apps & frontend engineer based in Jakarta. Skills, experience, and approach.",
 };

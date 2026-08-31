@@ -79,15 +79,15 @@ export function HoverPreview() {
       ref={wrapRef}
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[80] hidden will-change-transform md:block"
-      style={{ width: 340, transform: "translate3d(0,0,0)" }}
+      style={{ width: 180, transform: "translate3d(0,0,0)" }}
     >
-      <div className="glow relative aspect-[4/3] overflow-hidden rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] shadow-2xl">
+      <div className="glow relative aspect-square overflow-hidden rounded-lg border border-[var(--color-rule)] bg-[var(--color-card)] shadow-xl">
         <Image
           src={src}
           alt=""
           fill
           unoptimized
-          sizes="340px"
+          sizes="180px"
           className="object-cover"
           draggable={false}
         />
