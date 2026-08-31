@@ -151,8 +151,8 @@ export default function AboutPage() {
             >
               <span className="text-section px-3">
                 Mobile <span className="italic-accent">*</span> Frontend{" "}
-                <span className="italic-accent">*</span> Architecture{" "}
-                <span className="italic-accent">*</span> DX{" "}
+                <span className="italic-accent">*</span> Backend{" "}
+                <span className="italic-accent">*</span> Clean Architecture{" "}
                 <span className="italic-accent">*</span>
               </span>
             </MarqueeText>
@@ -325,9 +325,8 @@ function Fact({
         {label}
       </dt>
       <dd
-        className={`mt-1.5 text-[15px] text-[var(--color-fg)] ${
-          mono ? "font-mono" : ""
-        }`}
+        className={`mt-1.5 text-[15px] text-[var(--color-fg)] ${mono ? "font-mono" : ""
+          }`}
       >
         {value}
       </dd>

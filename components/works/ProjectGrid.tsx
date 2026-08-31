@@ -1,34 +1,19 @@
 import type { Project } from "@/data/projects";
-import { ProjectCard } from "./ProjectCard";
 import { ArchiveCard } from "./ArchiveCard";
 import { PreviewTrigger } from "./PreviewTrigger";
 import { HoverPreview } from "./HoverPreview";
+import { SelectedGrid } from "./SelectedGrid";
 
 type ProjectGridProps = {
-  selected: Project[];
+  featured: Project[];
+  extras: Project[];
   archive: Project[];
 };
 
-export function ProjectGrid({ selected, archive }: ProjectGridProps) {
+export function ProjectGrid({ featured, extras, archive }: ProjectGridProps) {
   return (
     <div className="space-y-16 sm:space-y-24">
-      <section>
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="bracket text-[10px] sm:text-xs">
-            [ 01 / SELECTED ]
-          </h2>
-          <span className="bracket text-[10px] sm:text-xs">
-            {selected.length} works
-          </span>
-        </div>
-        <ul className="mt-8 grid gap-12 md:grid-cols-2 md:gap-16">
-          {selected.map((p, i) => (
-            <li key={p.slug}>
-              <ProjectCard project={p} index={i} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <SelectedGrid featured={featured} extras={extras} />
 
       <section>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -47,7 +32,7 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
           {archive.map((p, i) => (
             <li key={p.slug}>
               <PreviewTrigger src="/icon.png">
-                <ArchiveCard project={p} index={selected.length + i} />
+                <ArchiveCard project={p} index={i} />
               </PreviewTrigger>
             </li>
           ))}

@@ -20,6 +20,7 @@ export type Project = {
   };
   awards?: string[];
   selected?: boolean;
+  featured?: boolean;
   client?: string;
 };
 
@@ -32,7 +33,7 @@ export const projects: Project[] = [
     year: 2026,
     emoji: "🏛️",
     categories: ["Mobile", "Flutter", "B2B"],
-    role: "Lead Mobile Apps Developer",
+    role: "Mobile Apps Developer",
     summary:
       "Superapp portal unifying core functions at Bank Indonesia — Policy, Institutional, and HR clusters — for faster information access.",
     problem:
@@ -71,6 +72,7 @@ export const projects: Project[] = [
     },
     awards: [],
     selected: true,
+    featured: true,
     client: "Bank Indonesia",
   },
   {
@@ -106,6 +108,7 @@ export const projects: Project[] = [
         "https://play.google.com/store/apps/details?id=com.ibj.cariilmu",
     },
     selected: true,
+    featured: true,
     client: "Cariilmu",
   },
   {
@@ -141,7 +144,104 @@ export const projects: Project[] = [
         "https://play.google.com/store/apps/details?id=com.azlogistik.muatmuattransporter",
     },
     selected: true,
+    featured: true,
     client: "muatmuat",
+  },
+  {
+    slug: "monefi",
+    title: "Monefi",
+    year: 2025,
+    emoji: "💸",
+    categories: ["Web", "Next.js", "Fintech"],
+    role: "Solo Developer",
+    summary:
+      "Personal finance platform that automates daily expense tracking via Telegram, voice notes, and receipt scanning, with an interactive web dashboard.",
+    problem:
+      "Tracking small daily expenses is friction-heavy — opening an app, picking categories, typing amounts. People stop logging within a week.",
+    solution: [
+      "Built a Telegram-first ingestion flow: chat, voice notes, and receipt photos all become transactions.",
+      "Wired Midtrans for top-ups and Supabase for storage + auth so the backend stays boring and reliable.",
+      "Designed a web dashboard that turns the noise into simple, glanceable insights.",
+    ],
+    stack: ["Next.js", "TailwindCSS", "TypeScript", "Supabase", "Midtrans"],
+    thumbs: [
+      "https://www.monefi.id/dashboard.png",
+      "https://www.monefi.id/dashboard.png",
+      "https://www.monefi.id/dashboard.png",
+    ],
+    gallery: ["https://www.monefi.id/dashboard.png"],
+    links: {
+      live: "https://monefi.id/",
+    },
+    selected: true,
+  },
+  {
+    slug: "petgram",
+    title: "Petgram",
+    year: 2024,
+    emoji: "🐾",
+    categories: ["Open Source", "Flutter", "ML", "Node.js"],
+    role: "Maintainer",
+    summary:
+      "Instagram-style social app for pet lovers, with on-device ML to detect pet photos at upload time.",
+    problem:
+      "Generic pet social apps mix pets with non-pet content, making the feed noisy for actual animal lovers.",
+    solution: [
+      "Built a Flutter mobile client with a clean pet-first feed and profile flows.",
+      "Integrated an on-device TensorFlow model to flag non-pet uploads before they reach the feed.",
+      "Wired a Node.js + Express + MongoDB backend for posts, auth, and moderation.",
+    ],
+    stack: ["Flutter", "BloC", "Node.js", "Express.js", "TensorFlow", "MongoDB"],
+    metrics: [
+      { label: "Stars", value: "12" },
+      { label: "Forks", value: "6" },
+    ],
+    thumbs: [
+      `${C}/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png`,
+      `${C}/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png`,
+      `${C}/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png`,
+    ],
+    gallery: [
+      `${C}/v1780665209/portfolio%20showcase/Gemini_Generated_Image_7e2cre7e2cre7e2c_1_ttbgug.png`,
+    ],
+    links: {
+      repo: "https://github.com/febryardiansyah/petgram-mobile",
+    },
+    selected: true,
+  },
+  {
+    slug: "mangamint",
+    title: "Mangamint",
+    year: 2024,
+    emoji: "🌿",
+    categories: ["Open Source", "Flutter", "Mobile"],
+    role: "Maintainer",
+    summary:
+      "Manga reader application that provides manga and comics in Bahasa Indonesia.",
+    problem:
+      "Reading Indonesian-translated manga meant jumping between shady sites with bad UX, ads, and broken reader layouts.",
+    solution: [
+      "Built a clean Flutter reader with offline downloads and bookmark sync.",
+      "Designed a discover/feed flow that surfaces new chapters reliably.",
+      "Wired the manga-api backend so the content layer stays decoupled from the UI.",
+    ],
+    stack: ["Flutter", "BloC", "Node.js", "Express.js", "REST"],
+    metrics: [
+      { label: "Stars", value: "67" },
+      { label: "Forks", value: "37" },
+    ],
+    thumbs: [
+      `${C}/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png`,
+      `${C}/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png`,
+      `${C}/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png`,
+    ],
+    gallery: [
+      `${C}/v1780665825/portfolio%20showcase/Gemini_Generated_Image_6mi9ad6mi9ad6mi9_1_qhzyao.png`,
+    ],
+    links: {
+      repo: "https://github.com/febryardiansyah/manga_mint",
+    },
+    selected: true,
   },
   {
     slug: "manga-api",
@@ -269,6 +369,8 @@ export const projects: Project[] = [
 ];
 
 export const selectedProjects = projects.filter((p) => p.selected);
+export const featuredProjects = selectedProjects.filter((p) => p.featured);
+export const extraProjects = selectedProjects.filter((p) => !p.featured);
 export const archiveProjects = projects.filter((p) => !p.selected);
 
 export function getProjectBySlug(slug: string) {

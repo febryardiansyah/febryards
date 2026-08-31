@@ -6,7 +6,7 @@ import { StarBurst } from "@/components/ornament/Ornaments";
 import { FloatingDecorations } from "@/components/ornament/FloatingDecorations";
 import { AnimatedSquiggle } from "@/components/motion/AnimatedSquiggle";
 import { ProjectGrid } from "@/components/works/ProjectGrid";
-import { projects, selectedProjects, archiveProjects } from "@/data/projects";
+import { projects, featuredProjects, extraProjects, archiveProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Selected Works",
@@ -94,7 +94,7 @@ export default function WorksPage() {
               <span>The Index</span>
             </div>
             <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] sm:text-[11px]">
-              {selectedProjects.length} selected · {archiveProjects.length} archived · ↓
+              {featuredProjects.length + extraProjects.length} selected · {archiveProjects.length} archived · ↓
             </span>
           </div>
         </Reveal>
@@ -118,7 +118,8 @@ export default function WorksPage() {
 
       <section className="py-12 md:py-16">
         <ProjectGrid
-          selected={selectedProjects}
+          featured={featuredProjects}
+          extras={extraProjects}
           archive={archiveProjects}
         />
       </section>
