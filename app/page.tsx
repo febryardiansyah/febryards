@@ -68,6 +68,7 @@ export default function HomePage() {
           <div className="mt-12 overflow-hidden">
             <MarqueeText
               speed="normal"
+              interactive
               className="text-[var(--color-fg)]"
               separator={
                 <span className="italic-accent ml-8" aria-hidden>

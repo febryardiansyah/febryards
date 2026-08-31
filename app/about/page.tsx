@@ -107,6 +107,7 @@ export default function AboutPage() {
             <MarqueeText
               speed="fast"
               reverse
+              interactive
               className="text-[var(--color-fg)]"
               separator={
                 <span className="italic-accent ml-8" aria-hidden>

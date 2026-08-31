@@ -1,6 +1,8 @@
 import type { Project } from "@/data/projects";
 import { ProjectCard } from "./ProjectCard";
 import { ArchiveCard } from "./ArchiveCard";
+import { PreviewTrigger } from "./PreviewTrigger";
+import { HoverPreview } from "./HoverPreview";
 
 type ProjectGridProps = {
   selected: Project[];
@@ -44,11 +46,15 @@ export function ProjectGrid({ selected, archive }: ProjectGridProps) {
         <ul className="mt-6 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
           {archive.map((p, i) => (
             <li key={p.slug}>
-              <ArchiveCard project={p} index={selected.length + i} />
+              <PreviewTrigger src={p.thumbs[0]}>
+                <ArchiveCard project={p} index={selected.length + i} />
+              </PreviewTrigger>
             </li>
           ))}
         </ul>
       </section>
+
+      <HoverPreview />
     </div>
   );
 }
