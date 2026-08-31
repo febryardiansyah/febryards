@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 const tracks = [
-  { artist: "Tame Impala", title: "The Less I Know The Better" },
-  { artist: "Mac DeMarco", title: "Chamber of Reflection" },
-  { artist: "Khruangbin", title: "Time (You and I)" },
-  { artist: "Men I Trust", title: "Show Me How" },
-  { artist: "Lamp", title: "さち子" },
-  { artist: "Yasuha", title: "Flyday Chinatown" },
+  { artist: "Neck Deep", title: "In Bloom" },
+  { artist: "Oasis", title: "Wonderwall" },
+  { artist: "Simple Plan", title: "I'm Just a Kid" },
+  { artist: "Neck Deep", title: "December" },
+  { artist: "Oasis", title: "Don't Look Back in Anger" },
+  { artist: "Simple Plan", title: "Welcome to My Life" },
 ];
 
 export function NowPlaying() {
